@@ -27,7 +27,7 @@ public class UserMember {
     @Column(columnDefinition = "varchar(20) not null comment '아이디'")
     private String id;
 
-    @Column(columnDefinition = "varchar(40) not null comment '패스워드'")
+    @Column(columnDefinition = "varchar(255) not null comment '패스워드'")
     private String password;
 
     @Column(columnDefinition = "varchar(1) not null comment '관리자여부'")
