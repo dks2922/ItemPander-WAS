@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Table(uniqueConstraints = {
         @UniqueConstraint(
                 name = "SSN_UNIQUE"
-                , columnNames ={"ssn"}
+                , columnNames = {"ssn"}
         )
 })
 @Entity
@@ -34,6 +34,12 @@ public class UserMemberDetail {
 
     @Column(columnDefinition = "varchar(11) null comment '휴대폰 번호'")
     private String phone;
+
+    @Column(columnDefinition = "varchar(3) null comment '은행 코드'")
+    private String bankSeq;
+    @Column(columnDefinition = "varchar(20) null comment '계좌번호'")
+    private String account;
+
     @Column(columnDefinition = "varchar(40) null comment '이메일'")
     private String email;
     @Column(columnDefinition = "varchar(1) not null comment '성별'")
