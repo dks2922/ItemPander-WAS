@@ -38,7 +38,7 @@ public class UserMemberDetail {
     @Column(columnDefinition = "varchar(3) null comment '은행 코드'")
     private String bankSeq;
     @Column(columnDefinition = "varchar(20) null comment '계좌번호'")
-    private String account;
+    private String bankAccount;
 
     @Column(columnDefinition = "varchar(40) null comment '이메일'")
     private String email;
