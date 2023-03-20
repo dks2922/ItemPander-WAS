@@ -12,7 +12,10 @@ public class BankSeq {
 
     @Column(columnDefinition = "varchar(3) null comment '은행 코드'")
     private String bankSeq;
-    @Column(columnDefinition = "varchar(10) null comment '은행명'")
+    @Column(columnDefinition = "varchar(20) null comment '은행명'")
     private String bankName;
+
+    @Column(columnDefinition = "varchar(30) null comment '종류'")
+    private String Kind;
 
 }
