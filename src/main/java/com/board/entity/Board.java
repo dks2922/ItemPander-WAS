@@ -1,4 +1,4 @@
-package com.goods.entity;
+package com.board.entity;
 
 import com.common.entity.BaseEntity;
 import com.user.entity.UserMember;
@@ -6,12 +6,15 @@ import com.user.entity.UserMember;
 import javax.persistence.*;
 
 @Entity
-public class Goods extends BaseEntity {
+public class Board extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "int not null comment '고유번호'")
     private Long no;
+
+    @Column(columnDefinition = "varchar(20) not null comment '거래번호'")
+    private String transNo;
 
     @Column(columnDefinition = "varchar(20) not null comment '종류'")
     private String kind;
