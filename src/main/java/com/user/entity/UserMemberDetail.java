@@ -17,7 +17,7 @@ public class UserMemberDetail {
     private Long no;
 
     @OneToOne
-    @JoinColumn(name = "userNo")
+    @JoinColumn(name = "user_no")
     private UserMember userMember;
 
     @Column(columnDefinition = "varchar(20) not null comment '이름'")
