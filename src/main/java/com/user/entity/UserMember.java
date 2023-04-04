@@ -13,10 +13,10 @@ import javax.persistence.*;
 @Table(name = "USER_MEMBER", uniqueConstraints = {
         @UniqueConstraint(
                 name = "ID_UNIQUE"
-                , columnNames = {"ID"}
+                , columnNames = {"userId"}
         )
 })
-@ToString(exclude = "userMember")
+@ToString
 public class UserMember {
 
     @Id
@@ -25,7 +25,7 @@ public class UserMember {
     private Long userNo;
 
     @Column(columnDefinition = "varchar(20) not null comment '아이디'")
-    private String id;
+    private String userId;
 
     @Column(columnDefinition = "varchar(255) not null comment '패스워드'")
     private String password;
