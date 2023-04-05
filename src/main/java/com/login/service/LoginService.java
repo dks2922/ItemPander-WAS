@@ -1,6 +1,7 @@
 package com.login.service;
 
 import com.login.repository.LoginRepository;
+import com.user.entity.UserMember;
 import exception.UnauthorizedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,16 +18,17 @@ public class LoginService {
 
     Logger log = LoggerFactory.getLogger(getClass().getName());
 
-    public String authenticateUser(String username, String password) {
-        System.out.println("username : " + username);
-        System.out.println("password : " + password);
-
+    public String authenticateUser(String userId, String password) {
         // username, password 검증 로직
-        if (isValidUser(username, password)) {
-            return JwtTokenProvider.generateToken(username);
+        if (isValidUser(userId, password)) {
+            return JwtTokenProvider.generateToken(userId);
         } else {
             throw new UnauthorizedException("Invalid username or password");
         }
+    }
+
+    public UserMember getUser(String userId, String password) {
+        return repository.findByUserIdAndPassword(userId, password);
     }
 
     private boolean isValidUser(String userId, String password) {
