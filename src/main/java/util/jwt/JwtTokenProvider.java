@@ -14,9 +14,9 @@ public class JwtTokenProvider {
 
     private static final int EXPIRATION_TIME = 86400000;
 
-    public static String generateToken(String username) {
+    public static String generateToken(String userId) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("username", username);
+        claims.put("username", userId);
 
         Date now = new Date();
         Date expiration = new Date(now.getTime() + EXPIRATION_TIME);
