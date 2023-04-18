@@ -32,7 +32,7 @@ public class UserMember {
 
     @Column(columnDefinition = "varchar(1) not null comment '관리자여부'")
     private String adminYn;
-    @Column(columnDefinition = "varchar(1) not null comment '탈퇴여부'")
+    @Column(columnDefinition = "varchar(1) not null comment '활성여부'")
     private String saveStatus;
 
     @Column(columnDefinition = "varchar(8) not null comment '가입날짜'")

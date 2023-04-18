@@ -20,8 +20,12 @@ public class LoginController {
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@RequestBody Login login) {
         UserMember userMember = loginService.getUser(login.getId(), login.getPassword());
-        String token = loginService.authenticateUser(userMember.getUserId(), userMember.getPassword());
-        return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+        if (userMember == null) {
+            return ResponseEntity.ok(null);
+        } else {
+            String token = loginService.authenticateUser(userMember.getUserId(), userMember.getPassword());
+            return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+        }
     }
 
 }

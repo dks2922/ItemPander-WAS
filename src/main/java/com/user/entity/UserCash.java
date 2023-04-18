@@ -1,9 +1,18 @@
 package com.user.entity;
 
 
+import com.user.repository.UserCashRepository;
+import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class UserCash {
 
     @Id

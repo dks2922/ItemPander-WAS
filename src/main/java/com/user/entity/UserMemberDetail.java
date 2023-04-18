@@ -1,5 +1,7 @@
 package com.user.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Table(uniqueConstraints = {
@@ -9,7 +11,17 @@ import javax.persistence.*;
         )
 })
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class UserMemberDetail {
+
+//    UserMemberDetail(UserParam userParam) {
+//        this.
+//    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "USERMEMBERDETAIL_GENERATOR")
@@ -70,4 +82,6 @@ public class UserMemberDetail {
     
     @Column(columnDefinition = "varchar(8) null comment '이메일 동의일자'")
     private String emailDate;
+
+
 }
