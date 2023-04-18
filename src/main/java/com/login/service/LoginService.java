@@ -2,10 +2,13 @@ package com.login.service;
 
 import com.login.repository.LoginRepository;
 import com.user.entity.UserMember;
+import config.SecurityConfig;
 import exception.UnauthorizedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import util.jwt.JwtTokenProvider;
 
@@ -15,6 +18,10 @@ public class LoginService {
 
     @Autowired
     public LoginRepository repository;
+
+
+    private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
 
     Logger log = LoggerFactory.getLogger(getClass().getName());
 
@@ -28,7 +35,13 @@ public class LoginService {
     }
 
     public UserMember getUser(String userId, String password) {
-        return repository.findByUserIdAndPassword(userId, password);
+        String encPwd = passwordEncoder.encode(password);
+
+        if(passwordEncoder.matches(password, encPwd) == true) {
+            return repository.findByUserId(userId);
+        } else {
+            return new UserMember();
+        }
     }
 
     private boolean isValidUser(String userId, String password) {
